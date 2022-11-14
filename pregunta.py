@@ -37,12 +37,13 @@ def ingest_data():
             words = " ".join(words)
             
             cluster[3] += words
-        elif re.match('^ +[a-z]', lin):
+        elif re.match('^ +[a-z]', line):
             words = line.split()
             words = " ".join(words)
             cluster[3] += words
-        elif re.match('^\n', fila) or re.match('^ +$', fila):
-            cluster[3] = cluster[3].replace('.', '') # Se elimina el punto final
+            
+        elif re.match('^\n', line) or re.match('^ +$', line):
+            cluster[3] = cluster[3].replace('.', '')
             cls.append(cluster)
             cluster = [0, 0, 0, '']
     
