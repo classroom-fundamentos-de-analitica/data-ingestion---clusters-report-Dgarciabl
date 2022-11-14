@@ -47,4 +47,4 @@ def ingest_data():
             cls.append(cluster)
             cluster = [0, 0, 0, '']
     
-    return pd.DataFrame (clusters, columns = ['cluster', 'cantidad_de_palabras_clave', 'porcentaje_de_palabras_clave', 'principales_palabras_clave'])
+    return pd.DataFrame (cls, columns = ['cluster', 'cantidad_de_palabras_clave', 'porcentaje_de_palabras_clave', 'principales_palabras_clave'])
