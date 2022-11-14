@@ -35,12 +35,12 @@ def ingest_data():
             
             words.pop(0) #Eliminar el %
             words = ' '.join(words)
-            cluster[3] += words + ' '
+            cluster[3] += words
             
         elif re.match('^ +[a-z]', line):
             words = line.split()
             words = ' '.join(words)
-            cluster[3] += "".join([' ', words])
+            cluster[3] += ' ' + words
             
         elif re.match('^\n', line) or re.match('^ +$', line):
             cluster[3] = cluster[3].replace('.', '')
