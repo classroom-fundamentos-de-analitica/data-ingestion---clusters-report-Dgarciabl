@@ -34,17 +34,18 @@ def ingest_data():
             cluster[2] = float(percentage.replace(',', '.'))
             
             words.pop(0) #Eliminar el %
-            words = " ".join(words)
+            words = ' '.join(words)
+            cluster[3] += words + ' '
             
-            cluster[3] += words
         elif re.match('^ +[a-z]', line):
             words = line.split()
-            words = " ".join(words)
-            cluster[3] += words
+            words = ' '.join(words)
+            cluster[3] += "".join([' ', words])
             
         elif re.match('^\n', line) or re.match('^ +$', line):
             cluster[3] = cluster[3].replace('.', '')
             cls.append(cluster)
+            
             cluster = [0, 0, 0, '']
     
     return pd.DataFrame (cls, columns = ['cluster', 'cantidad_de_palabras_clave', 'porcentaje_de_palabras_clave', 'principales_palabras_clave'])
