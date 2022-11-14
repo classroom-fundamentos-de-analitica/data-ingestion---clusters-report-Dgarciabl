@@ -24,14 +24,14 @@ def ingest_data():
     
     cls = []
     
-    cluster = [0, 0, 0, ""]
+    cluster = [0, 0, 0, '']
     for line in df:
         
         if re.match('^ +[0-9]+ +', line):
             number, quantity, percentage, *words = line.split()
             cluster[0] = int(number)
             cluster[1] = int(quantity)
-            cluster[2] = float(percentage.replace(",", "."))
+            cluster[2] = float(percentage.replace(',', '.'))
             
             words.pop(0) #Eliminar el %
             words = " ".join(words)
