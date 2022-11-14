@@ -37,7 +37,7 @@ def ingest_data():
             words = " ".join(words)
             
             cluster[3] += words
-        elif re.match('^ +[a-z]', fila):
+        elif re.match('^ +[a-z]', lin):
             words = line.split()
             words = " ".join(words)
             cluster[3] += words
